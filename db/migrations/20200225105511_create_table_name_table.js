@@ -7,11 +7,11 @@
      articles.text('body').notNullable();
      articles.integer('votes').defaultTo(0);
      articles
-       .string('topicsRef')
+       .string('topic')
        .references('slug')
        .inTable('topics');
      articles
-       .integer('author')
+       .string('author')
        .references('username')
        .inTable('users');
      articles.timestamp('created_at').defaultTo(knex.fn.now());

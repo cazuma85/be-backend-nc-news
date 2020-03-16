@@ -10,7 +10,8 @@
     "test-utils": "mocha spec/utils.spec.js",
     "test": "mocha spec/app.spec.js",
     "migrate-latest": "knex migrate:latest",
-    "migrate-rollback": "knex migrate:rollback"
+    "migrate-rollback": "knex migrate:rollback",
+    "test-seed":"npm run setup-dbs && npm run seed"
   },
   "repository": {
     "type": "git",

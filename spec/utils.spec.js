@@ -55,6 +55,7 @@ describe('formatDates', () => {
     ];
     expect(actual).to.eql(expected);
   });
+  it('make sure i `am not mutating data ', () => {});
 });
 
 describe('makeRefObj', () => {
@@ -80,10 +81,76 @@ describe('makeRefObj', () => {
     const expected = [{ A: 1 }, { fg: 3 }];
     expect(actual).to.eql(expected);
   });
+  it('make sure i `am not mutating data ', () => {});
 });
 
 describe.only('formatComments', () => {
-it('return a new array', () => {
-  
-});
+  it('return a new array', () => {
+    const comments = [];
+    const articleRef = [];
+    //const expected
+    const actual = formatComments(comments, articleRef);
+    expect(actual).to.eql([]);
+  });
+  it('make all the /created by / belongs to etc...in an object in the returned array ', () => {
+    const comments = [
+      {
+        body:
+          "Oh, I've got compassion running out of my nose, pal! I'm the Sultan of Sentiment!",
+        belongs_to: "They're not exactly dogs, are they?",
+        created_by: 'butter_bridge',
+        votes: 16,
+        created_at: 1511354163389
+      }
+    ];
+    const articleRef = [{ A: 1 }];
+    const expected = [
+      {
+        author: 'butter_bridge',
+        article_id: 'A',
+        created_at: 1511354163389
+      }
+    ];
+    const actual = formatComments(comments, articleRef);
+    expect(actual).to.eql(expected);
+  });
+  it('make all the/ created by / belongs to etc...in many objects for many objects in the returned array ', () => {
+    const comments = [
+      {
+        body:
+          "Oh, I've got compassion running out of my nose, pal! I'm the Sultan of Sentiment!",
+        belongs_to: "They're not exactly dogs, are they?",
+        created_by: 'butter_bridge',
+        votes: 16,
+        created_at: 1511354163389
+      },
+      {
+        body:
+          "blablablablablablablbalbalabakfugeugd",
+        belongs_to: "They're not exactly people, are they?",
+        created_by: 'brandy_scotsh',
+        votes: 1200,
+        created_at: 1811454168319
+      }
+    ];
+    const articleRef = [{ A: 1 }, { b: 56 }];
+    const expected = [
+      {
+        author: 'butter_bridge',
+        article_id: 'A',
+        created_at: 1511354163389
+      },
+      {
+        author: 'brandy_scotsh',
+        article_id: 'b',
+        created_at: 1811454168319
+      }
+    ];
+    const actual = formatComments(comments, articleRef);
+    expect(actual).to.eql(expected);
+  });
+  // it('make sure i `am not mutating data ', () => {
+  //  const actual = formatComments(comments, articleRef);
+  //  expect 
+  // });
 });

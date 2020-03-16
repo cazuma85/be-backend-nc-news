@@ -6,7 +6,7 @@ exports.up = function(knex) {
   return knex.schema.createTable('comments', comments => {
     comments.increments('comment_id').primary();
     comments
-      .integer('author')
+      .string('author')
       .references('username')
       .inTable('users');
     comments.integer('votes').defaultTo(0);

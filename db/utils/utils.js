@@ -33,9 +33,26 @@ exports.makeRefObj = list => {
   if (newnewlist.length !== 0) {
     return newnewlist;
   }
-  
+
   return newlist;
 };
 exports.formatComments = (comments, articleRef) => {
+  const array = [];
+  const article = [...articleRef];
+  const comment = [...comments];
+  
+  for (let i = 0; i < article.length; i++) {
+    let object = {};
+    const id = Object.keys(article[i])[0];
 
+    const commentName = comment[i].created_by;
+const createdDate = comment[i].created_at;
+    object.author = commentName;
+
+    object.article_id = id;
+    object.created_at =createdDate;
+
+    array.push(object);
+  }
+  return array;
 };
