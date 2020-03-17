@@ -53,6 +53,7 @@ const createdDate = comment[i].created_at;
     object.created_at =createdDate;
 
     array.push(object);
+    console.log(array)
   }
   return array;
 };

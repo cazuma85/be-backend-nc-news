@@ -147,10 +147,30 @@ describe.only('formatComments', () => {
       }
     ];
     const actual = formatComments(comments, articleRef);
+    
     expect(actual).to.eql(expected);
   });
-  // it('make sure i `am not mutating data ', () => {
-  //  const actual = formatComments(comments, articleRef);
-  //  expect 
-  // });
+  it('make sure i `am not mutating data ', () => {
+    const comments = [
+      {
+        body:
+          "Oh, I've got compassion running out of my nose, pal! I'm the Sultan of Sentiment!",
+        belongs_to: "They're not exactly dogs, are they?",
+        created_by: 'butter_bridge',
+        votes: 16,
+        created_at: 1511354163389
+      },
+      {
+        body: 'blablablablablablablbalbalabakfugeugd',
+        belongs_to: "They're not exactly people, are they?",
+        created_by: 'brandy_scotsh',
+        votes: 1200,
+        created_at: 1811454168319
+      }
+    ];
+    const articleRef = [{ A: 1 }, { b: 56 }];
+   const actual = formatComments(comments, articleRef);
+   
+   expect().to.not.equal(actual)
+  });
 });
