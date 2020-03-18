@@ -4,8 +4,9 @@ fetchTopics().then(topics =>{
 res.send({topics })
 
 })
-.catch(err =>{
-  next(err)
-})
+.catch(next)
+  //console.log(err)module.exports = errors;
+  
+
  }
 module.exports = {getTopics };

@@ -6,7 +6,7 @@ const connection = require('../db/connection');
   // beforeEach, get knex, invoke knex.seed.run()
   // after knex.destroy
   beforeEach(()=>{
-    knex.seed.run()
+   connection.seed.run()
   })
   after(() => {
     connection.destroy();
